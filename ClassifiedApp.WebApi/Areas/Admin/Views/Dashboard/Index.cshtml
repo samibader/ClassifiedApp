@@ -1,0 +1,582 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    //ViewBag.SpecialClass = "sidebar-content";
+}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Dashboard</h2>
+        <ol class="breadcrumb">
+            <li class="active">
+                <a href="@Url.Action("Index", "Dashboard")">Home</a>
+            </li>
+            @*<li>
+                <a>Graphs</a>
+            </li>
+            <li class="active">
+                <strong>Chart</strong>
+            </li>*@
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="widget style1 blue-bg">
+                <div class="row">
+                    <div class="col-xs-4 text-center">
+                        <i class="fa fa-users fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Total Users </span>
+                        <h2 class="font-bold">@ViewBag.TotalUsers</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 navy-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-check-square fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Total Active Classifieds </span>
+                        <h2 class="font-bold">@ViewBag.TotalActive</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 yellow-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-exclamation-triangle fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Total Pending Classifieds </span>
+                        <h2 class="font-bold">@ViewBag.TotalPending</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="widget style1 red-bg">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <i class="fa fa-times-circle fa-5x"></i>
+                    </div>
+                    <div class="col-xs-8 text-right">
+                        <span> Total Rejected Classifieds </span>
+                        <h2 class="font-bold">@ViewBag.TotalRejected</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>User Registration Chart</h5>
+                    &nbsp;&nbsp;<img id='loader' src="~/Areas/Admin/Images/loader.gif" alt="Alternate Text" />
+                    <div class="pull-right">
+                        <div class="btn-group" id="user_btn_group">
+                            <button type="button" id="user_yearly" class="btn btn-xs btn-white active">Yearly</button>
+                            <button type="button" id="user_monthly" class="btn btn-xs btn-white">Monthly</button>
+                            <button type="button" id="user_weekly" class="btn btn-xs btn-white">Weekly</button>
+                            <button type="button" id="user_daily" class="btn btn-xs btn-white">Daily</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="user_yearly_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                @*<label for="YearUserDDL" class="sr-only">Year :</label>
+                                @Html.DropDownList("YearUserDDL", ViewData["YearsList"] as SelectList, new { @class = "form-control" })*@
+                                <input id="user_yearly_input" type="text" class="form-control" value="@DateTime.Now.Year">
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateUserYearlyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="user_yearly_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div id="user_monthly_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input id="user_monthly_input" type="text" class="form-control" value='@String.Format("{0}/{1}",DateTime.Now.Month,DateTime.Now.Year)'>
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateUserMonthlyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="user_monthly_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div id="user_weekly_div">
+                        Week
+                    </div>
+                    <div id="user_daily_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input id="user_daily_input" type="text" class="form-control" value='@String.Format("{0}/{1}/{2}",DateTime.Now.Day, DateTime.Now.Month,DateTime.Now.Year)'>
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateUserDailyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="user_daily_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Bar Chart Example</h5>
+                </div>
+                <div class="ibox-content">
+                    <div>
+                        <canvas id="barChart" height="140"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Active Classifieds Chart</h5>
+                    &nbsp;&nbsp;<img id='loader2' src="~/Areas/Admin/Images/loader.gif" alt="Alternate Text" />
+                    <div class="pull-right">
+                        <div class="btn-group" id="classified_btn_group">
+                            <button type="button" id="classified_yearly" class="btn btn-xs btn-white active">Yearly</button>
+                            <button type="button" id="classified_monthly" class="btn btn-xs btn-white">Monthly</button>
+                            <button type="button" id="classified_weekly" class="btn btn-xs btn-white">Weekly</button>
+                            <button type="button" id="classified_daily" class="btn btn-xs btn-white">Daily</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <div id="classified_yearly_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input id="classified_yearly_input" type="text" class="form-control" value="@DateTime.Now.Year">
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateClassifiedYearlyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="classified_yearly_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div id="classified_monthly_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input id="classified_monthly_input" type="text" class="form-control" value='@String.Format("{0}/{1}",DateTime.Now.Month,DateTime.Now.Year)'>
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateClassifiedMonthlyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="classified_monthly_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                    <div id="classified_weekly_div">
+                        Week
+                    </div>
+                    <div id="classified_daily_div">
+                        <div class="form-inline">
+                            <div class="form-group">
+                                <input id="classified_daily_input" type="text" class="form-control" value='@String.Format("{0}/{1}/{2}",DateTime.Now.Day, DateTime.Now.Month,DateTime.Now.Year)'>
+                            </div>
+                            <button class="btn btn-white" type="submit" onclick="UpdateClassifiedDailyChart();">Update</button>
+                        </div>
+                        <div>
+                            <canvas id="classified_daily_chart" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    @section Styles {
+    @Styles.Render("~/Areas/Admin/plugins/dataPickerStyles")
+    }
+    @section Scripts {
+        @Scripts.Render("~/Areas/Admin/plugins/chartJs")
+        @Scripts.Render("~/Areas/Admin/plugins/peity")
+        @Scripts.Render("~/Areas/Admin/plugins/dataPicker")
+        <script>
+            function UpdateUserYearlyChart() {
+                $('#loader').show();
+                $('#user_yearly_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetYearlyUserRegistrationChartData",
+                    dataType: "json",
+                    data: { year: $("#user_yearly_input").val() },
+                    success: function (data) {
+                        //console.log("Length is: " + data.length);
+                        user_yearly_data.labels = [];
+                        user_yearly_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            user_yearly_data.labels.push(data[i].MonthName);
+                            user_yearly_data.datasets[0].data.push(data[i].Count);
+                        }
+                        
+                        $('#user_yearly_chart').show();
+                        $('#loader').hide();
+                        if (window.myBar != null)
+                            window.myBar.destroy();
+                        var ctx = document.getElementById("user_yearly_chart").getContext("2d");
+                        window.myBar = new Chart(ctx).Line(user_yearly_data, {
+                            responsive: true
+                        });
+                       
+                    }
+                });
+
+
+            }
+
+            function UpdateUserMonthlyChart() {
+                $('#loader').show();
+                $('#user_monthly_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetMonthlyUserRegistrationChartData",
+                    dataType: "json",
+                    data: { year: $("#user_monthly_input").val().split('/')[1], month: $("#user_monthly_input").val().split('/')[0] },
+                    success: function (data) {
+                        user_monthly_data.labels = [];
+                        user_monthly_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            user_monthly_data.labels.push(data[i].Day);
+                            user_monthly_data.datasets[0].data.push(data[i].Count);
+                        }
+                        console.log(user_monthly_data.labels);
+                        console.log(user_monthly_data.datasets[0].data);
+                        $('#user_monthly_chart').show();
+                        $('#loader').hide();
+                        if (window.myBar1 != null)
+                            window.myBar1.destroy();
+                        var ctx2 = document.getElementById("user_monthly_chart").getContext("2d");
+                        window.myBar1 = new Chart(ctx2).Line(user_monthly_data, {
+                            responsive: true
+                        });
+                        
+                    }
+                });
+            }
+
+            function UpdateUserDailyChart() {
+                $('#loader').show();
+                $('#user_daily_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetDailyUserRegistrationChartData",
+                    dataType: "json",
+                    data: { year: $("#user_daily_input").val().split('/')[2], month: $("#user_daily_input").val().split('/')[1], day: $("#user_daily_input").val().split('/')[0] },
+                    success: function (data) {
+                        user_daily_data.labels = [];
+                        user_daily_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            user_daily_data.labels.push(data[i].HourString);
+                            user_daily_data.datasets[0].data.push(data[i].Count);
+                        }
+                        console.log(user_daily_data.labels);
+                        console.log(user_daily_data.datasets[0].data);
+                        $('#user_daily_chart').show();
+                        $('#loader').hide();
+                        if (window.myBar2 != null)
+                            window.myBar2.destroy();
+                        var ctx2 = document.getElementById("user_daily_chart").getContext("2d");
+                        window.myBar2 = new Chart(ctx2).Line(user_daily_data, {
+                            responsive: true
+                        });
+
+                    }
+                });
+            }
+
+            var user_yearly_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            var user_monthly_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            var user_daily_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            $("#user_btn_group > .btn").click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            $("#user_btn_group > button.btn").on("click", function () {
+                
+                ToggleUserStats(this.id);
+            });
+            var user_stats = ['user_yearly', 'user_monthly', 'user_weekly', 'user_daily'];
+            function ToggleUserStats(value) {
+                for (i = 0; i < user_stats.length; i++) {
+                    //alert(user_stats[i]+'    '+value);
+                    if (user_stats[i] == value)
+                        $('#'+user_stats[i] + '_div').show();
+                    else
+                        $('#'+user_stats[i] + '_div').hide();
+                }
+            }
+
+            $('#user_yearly_input').datepicker({
+                format: "yyyy",
+                startView: 1,
+                minViewMode: 2,
+                autoclose: true
+            });
+            $('#user_monthly_input').datepicker({
+                format: "m/yyyy",
+                minViewMode: 1,
+                autoclose: true
+            });
+            $('#user_daily_input').datepicker({
+                format: "d/m/yyyy",
+                weekStart: 6,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            //$('#user_weekly_input').on('dp.change', function (e) {
+            //    var value = $("#user_weekly_input").val();
+            //    var firstDate = moment(value, "d/m/yyyy").day(0).format("d/m/yyyy");
+            //    var lastDate = moment(value, "d/m/yyyy").day(6).format("d/m/yyyy");
+            //    $("#user_weekly_input").val(firstDate + " - " + lastDate);
+            //});
+        </script>
+        <script>
+            function UpdateClassifiedYearlyChart() {
+                $('#loader2').show();
+                $('#classified_yearly_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetYearlyActiveClassifiedChartData",
+                    dataType: "json",
+                    data: { year: $("#classified_yearly_input").val() },
+                    success: function (data) {
+                        //console.log("Length is: " + data.length);
+                        classified_yearly_data.labels = [];
+                        classified_yearly_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            classified_yearly_data.labels.push(data[i].MonthName);
+                            classified_yearly_data.datasets[0].data.push(data[i].Count);
+                        }
+
+                        $('#classified_yearly_chart').show();
+                        $('#loader2').hide();
+                        if (window.myBar11 != null)
+                            window.myBar11.destroy();
+                        var ctx = document.getElementById("classified_yearly_chart").getContext("2d");
+                        window.myBar11 = new Chart(ctx).Line(classified_yearly_data, {
+                            responsive: true
+                        });
+
+                    }
+                });
+
+
+            }
+
+            function UpdateClassifiedMonthlyChart() {
+                $('#loader2').show();
+                $('#classified_monthly_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetMonthlyActiveClassifiedChartData",
+                    dataType: "json",
+                    data: { year: $("#classified_monthly_input").val().split('/')[1], month: $("#classified_monthly_input").val().split('/')[0] },
+                    success: function (data) {
+                        classified_monthly_data.labels = [];
+                        classified_monthly_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            classified_monthly_data.labels.push(data[i].Day);
+                            classified_monthly_data.datasets[0].data.push(data[i].Count);
+                        }
+                        console.log(classified_monthly_data.labels);
+                        console.log(classified_monthly_data.datasets[0].data);
+                        $('#classified_monthly_chart').show();
+                        $('#loader2').hide();
+                        if (window.myBar22 != null)
+                            window.myBar22.destroy();
+                        var ctx2 = document.getElementById("classified_monthly_chart").getContext("2d");
+                        window.myBar22 = new Chart(ctx2).Line(classified_monthly_data, {
+                            responsive: true
+                        });
+
+                    }
+                });
+            }
+
+            function UpdateClassifiedDailyChart() {
+                $('#loader2').show();
+                $('#classified_daily_chart').hide();
+                return $.ajax({
+                    url: "/Admin/Dashboard/GetDailyActiveClassifiedChartData",
+                    dataType: "json",
+                    data: { year: $("#classified_daily_input").val().split('/')[2], month: $("#classified_daily_input").val().split('/')[1], day: $("#classified_daily_input").val().split('/')[0] },
+                    success: function (data) {
+                        classified_daily_data.labels = [];
+                        classified_daily_data.datasets[0].data = [];
+                        for (i = 0; i < data.length; i++) {
+                            classified_daily_data.labels.push(data[i].HourString);
+                            classified_daily_data.datasets[0].data.push(data[i].Count);
+                        }
+                        console.log(classified_daily_data.labels);
+                        console.log(classified_daily_data.datasets[0].data);
+                        $('#classified_daily_chart').show();
+                        $('#loader2').hide();
+                        if (window.myBar33 != null)
+                            window.myBar33.destroy();
+                        var ctx2 = document.getElementById("classified_daily_chart").getContext("2d");
+                        window.myBar33 = new Chart(ctx2).Line(classified_daily_data, {
+                            responsive: true
+                        });
+
+                    }
+                });
+            }
+
+            var classified_yearly_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            var classified_monthly_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            var classified_daily_data = {
+                labels: [],
+                datasets: [
+                    {
+                        label: "Test",
+                        fillColor: "rgba(26,179,148,0.5)",
+                        strokeColor: "rgba(26,179,148,0.7)",
+                        pointColor: "rgba(26,179,148,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(26,179,148,1)",
+                        data: []
+                    }
+                ]
+            };
+            $("#classified_btn_group > .btn").click(function () {
+                $(this).addClass("active").siblings().removeClass("active");
+            });
+            $("#classified_btn_group > button.btn").on("click", function () {
+                ToggleClassifiedStats(this.id);
+            });
+            var classified_stats = ['classified_yearly', 'classified_monthly', 'classified_weekly', 'classified_daily'];
+            function ToggleClassifiedStats(value) {
+                for (i = 0; i < classified_stats.length; i++) {
+                    //alert(classified_stats[i]+'    '+value);
+                    if (classified_stats[i] == value)
+                        $('#' + classified_stats[i] + '_div').show();
+                    else
+                        $('#' + classified_stats[i] + '_div').hide();
+                }
+            }
+
+            $('#classified_yearly_input').datepicker({
+                format: "yyyy",
+                startView: 1,
+                minViewMode: 2,
+                autoclose: true
+            });
+            $('#classified_monthly_input').datepicker({
+                format: "m/yyyy",
+                minViewMode: 1,
+                autoclose: true
+            });
+            $('#classified_daily_input').datepicker({
+                format: "d/m/yyyy",
+                weekStart: 6,
+                autoclose: true,
+                todayHighlight: true
+            });
+
+            //$('#classified_weekly_input').on('dp.change', function (e) {
+            //    var value = $("#classified_weekly_input").val();
+            //    var firstDate = moment(value, "d/m/yyyy").day(0).format("d/m/yyyy");
+            //    var lastDate = moment(value, "d/m/yyyy").day(6).format("d/m/yyyy");
+            //    $("#classified_weekly_input").val(firstDate + " - " + lastDate);
+            //});
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $.when(UpdateUserYearlyChart(), UpdateUserMonthlyChart(), UpdateUserDailyChart()).done(function () {
+                    ToggleUserStats(user_stats[0]);
+                    //alert('done');
+                });
+                $.when(UpdateClassifiedYearlyChart(), UpdateClassifiedMonthlyChart(), UpdateClassifiedDailyChart()).done(function () {
+                    ToggleClassifiedStats(classified_stats[0]);
+                    //alert('done');
+                });
+            });
+            
+        </script>
+    }

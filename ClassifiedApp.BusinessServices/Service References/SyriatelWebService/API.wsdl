@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RegisterNewUserSCS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logingName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="loginPass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobileNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterNewUserSCSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterNewUserSCSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCS_SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="scsWebSiteUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scsWebSitePass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="user_id" type="s:long" />
+            <s:element minOccurs="0" maxOccurs="1" name="secretCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SCS_SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SCS_SendSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Normal_By_Admin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="admin_user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="admin_pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="first_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionals" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Normal_By_AdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Add_Normal_By_AdminResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Admin_By_Agent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="agent_user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="agent_pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="first_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="last_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionals" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Add_Admin_By_AgentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Add_Admin_By_AgentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContract">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="creator_user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="creator_pass" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contract_type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="message_count" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="expire_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="optionals" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddContractResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddContractResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBroadcastSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="job_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scheduled_date" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendBroadcastSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendBroadcastSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="job_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sender" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="to" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="scheduled_date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="repeating" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="repeat_until" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckJobStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="job_id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckJobStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckJobStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="user_name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="target_user_name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckUserStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckUserStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterNewUserSCSSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterNewUserSCS" />
+  </wsdl:message>
+  <wsdl:message name="RegisterNewUserSCSSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterNewUserSCSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SCS_SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SCS_SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SCS_SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SCS_SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_Normal_By_AdminSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Normal_By_Admin" />
+  </wsdl:message>
+  <wsdl:message name="Add_Normal_By_AdminSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_Normal_By_AdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="Add_Admin_By_AgentSoapIn">
+    <wsdl:part name="parameters" element="tns:Add_Admin_By_Agent" />
+  </wsdl:message>
+  <wsdl:message name="Add_Admin_By_AgentSoapOut">
+    <wsdl:part name="parameters" element="tns:Add_Admin_By_AgentResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddContractSoapIn">
+    <wsdl:part name="parameters" element="tns:AddContract" />
+  </wsdl:message>
+  <wsdl:message name="AddContractSoapOut">
+    <wsdl:part name="parameters" element="tns:AddContractResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendBroadcastSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendBroadcastSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendBroadcastSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendBroadcastSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSMS" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckJobStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckJobStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckJobStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckJobStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckUserStatus" />
+  </wsdl:message>
+  <wsdl:message name="CheckUserStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckUserStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="APISoap">
+    <wsdl:operation name="RegisterNewUserSCS">
+      <wsdl:input message="tns:RegisterNewUserSCSSoapIn" />
+      <wsdl:output message="tns:RegisterNewUserSCSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SCS_SendSMS">
+      <wsdl:input message="tns:SCS_SendSMSSoapIn" />
+      <wsdl:output message="tns:SCS_SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Normal_By_Admin">
+      <wsdl:input message="tns:Add_Normal_By_AdminSoapIn" />
+      <wsdl:output message="tns:Add_Normal_By_AdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add_Admin_By_Agent">
+      <wsdl:input message="tns:Add_Admin_By_AgentSoapIn" />
+      <wsdl:output message="tns:Add_Admin_By_AgentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddContract">
+      <wsdl:input message="tns:AddContractSoapIn" />
+      <wsdl:output message="tns:AddContractSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBroadcastSMS">
+      <wsdl:input message="tns:SendBroadcastSMSSoapIn" />
+      <wsdl:output message="tns:SendBroadcastSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckJobStatus">
+      <wsdl:input message="tns:CheckJobStatusSoapIn" />
+      <wsdl:output message="tns:CheckJobStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserStatus">
+      <wsdl:input message="tns:CheckUserStatusSoapIn" />
+      <wsdl:output message="tns:CheckUserStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="APISoap" type="tns:APISoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterNewUserSCS">
+      <soap:operation soapAction="http://tempuri.org/RegisterNewUserSCS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SCS_SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SCS_SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Normal_By_Admin">
+      <soap:operation soapAction="http://tempuri.org/Add_Normal_By_Admin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Admin_By_Agent">
+      <soap:operation soapAction="http://tempuri.org/Add_Admin_By_Agent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContract">
+      <soap:operation soapAction="http://tempuri.org/AddContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBroadcastSMS">
+      <soap:operation soapAction="http://tempuri.org/SendBroadcastSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckJobStatus">
+      <soap:operation soapAction="http://tempuri.org/CheckJobStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserStatus">
+      <soap:operation soapAction="http://tempuri.org/CheckUserStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="APISoap12" type="tns:APISoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterNewUserSCS">
+      <soap12:operation soapAction="http://tempuri.org/RegisterNewUserSCS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SCS_SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SCS_SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Normal_By_Admin">
+      <soap12:operation soapAction="http://tempuri.org/Add_Normal_By_Admin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add_Admin_By_Agent">
+      <soap12:operation soapAction="http://tempuri.org/Add_Admin_By_Agent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddContract">
+      <soap12:operation soapAction="http://tempuri.org/AddContract" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBroadcastSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendBroadcastSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://tempuri.org/SendSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckJobStatus">
+      <soap12:operation soapAction="http://tempuri.org/CheckJobStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckUserStatus">
+      <soap12:operation soapAction="http://tempuri.org/CheckUserStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="API">
+    <wsdl:port name="APISoap" binding="tns:APISoap">
+      <soap:address location="https://bms.syriatel.sy:7459/ui/API.asmx" />
+    </wsdl:port>
+    <wsdl:port name="APISoap12" binding="tns:APISoap12">
+      <soap12:address location="https://bms.syriatel.sy:7459/ui/API.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassifiedApp.BusinessServices</RootNamespace>
+    <AssemblyName>ClassifiedApp.BusinessServices</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.4.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.0.4\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FluentValidation, Version=5.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.5.6.2.0\lib\Net45\FluentValidation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Amazon, Version=1.0.5827.25381, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Amazon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Apple, Version=1.0.5827.25380, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Apple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry, Version=1.0.5827.25381, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Blackberry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Core, Version=1.0.5827.25380, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Firefox, Version=1.0.5827.25381, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Firefox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Google, Version=1.0.5827.25381, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Google.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Windows, Version=1.0.5827.25381, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PushSharp.3.0.0-beta37\lib\net45\PushSharp.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\Interfaces\IStatisticsService.cs" />
+    <Compile Include="Admin\Services\StatisticsService.cs" />
+    <Compile Include="Admin\ViewModels\DailyStatisticsViewModel.cs" />
+    <Compile Include="Admin\ViewModels\MonthlyStatisticsViewModel.cs" />
+    <Compile Include="Admin\ViewModels\YearlyStatisticsViewModel.cs" />
+    <Compile Include="BusinessSettings.cs" />
+    <Compile Include="Categories\Validators\InputCategoryModelValidator.cs" />
+    <Compile Include="Categories\ViewModels\PropertyDefinitionModel.cs" />
+    <Compile Include="Categories\ViewModels\CategoryModel.cs" />
+    <Compile Include="Categories\Services\CategoryService.cs" />
+    <Compile Include="Categories\ViewModels\InputCategoryModel.cs" />
+    <Compile Include="Classifieds\Interfaces\IClassifiedService.cs" />
+    <Compile Include="Classifieds\Services\AuthorizationRequired.cs" />
+    <Compile Include="Classifieds\Services\ClassifiedService.cs" />
+    <Compile Include="Classifieds\Validators\EditClassifiedModelValidator.cs" />
+    <Compile Include="Classifieds\Validators\InputClassifiedModelValidator.cs" />
+    <Compile Include="Classifieds\Validators\InputPropertyValueModelValidator.cs" />
+    <Compile Include="Classifieds\ViewModels\ClassifiedImageModel.cs" />
+    <Compile Include="Classifieds\ViewModels\ClassifiedDetailsModel.cs" />
+    <Compile Include="Classifieds\ViewModels\ClassifiedModel.cs" />
+    <Compile Include="Classifieds\ViewModels\InputClassifiedImageModel.cs" />
+    <Compile Include="Classifieds\ViewModels\EditClassifiedModel.cs" />
+    <Compile Include="Classifieds\ViewModels\InputImageTest.cs" />
+    <Compile Include="Classifieds\ViewModels\InputPropertyValueModel.cs" />
+    <Compile Include="Classifieds\ViewModels\PropertyValueModel.cs" />
+    <Compile Include="Classifieds\ViewModels\SearchClassifiedModel.cs" />
+    <Compile Include="Classifieds\ViewModels\InputClassifiedModel.cs" />
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="DtoMapping.cs" />
+    <Compile Include="EncryptionService.cs" />
+    <Compile Include="Categories\Interfaces\ICategoryService.cs" />
+    <Compile Include="FeedbackTickets\Interfaces\IFeedbackService.cs" />
+    <Compile Include="FeedbackTickets\Services\FeedbackService.cs" />
+    <Compile Include="FeedbackTickets\Validators\InputFeedbackTicketModelValidator.cs" />
+    <Compile Include="FeedbackTickets\ViewModels\InputFeedbackTicketModel.cs" />
+    <Compile Include="IEncryptionService.cs" />
+    <Compile Include="Notifications\Interfaces\INotificationService.cs" />
+    <Compile Include="Notifications\Services\NotificationService.cs" />
+    <Compile Include="Notifications\ViewModels\InputDeviceModel.cs" />
+    <Compile Include="Notifications\ViewModels\InputNotificationModel.cs" />
+    <Compile Include="Notifications\ViewModels\NotificationModel.cs" />
+    <Compile Include="ReportTickets\Interfaces\IReportService.cs" />
+    <Compile Include="ReportTickets\Services\ReportService.cs" />
+    <Compile Include="ReportTickets\Validators\InputReportClassifiedTicketModelValidator.cs" />
+    <Compile Include="ReportTickets\Validators\InputReportUserTicketModelValidator.cs" />
+    <Compile Include="ReportTickets\ViewModels\InputReportClassifiedTicketModel.cs" />
+    <Compile Include="ReportTickets\ViewModels\InputReportUserTicketModel.cs" />
+    <Compile Include="Service References\SyriatelWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SubCategories\Interfaces\ISubCategoryService.cs" />
+    <Compile Include="SubCategories\Services\SubCategoryService.cs" />
+    <Compile Include="SubCategories\Validators\InputSubCategoryModelValidator.cs" />
+    <Compile Include="SubCategories\ViewModels\InputSubCategoryModel.cs" />
+    <Compile Include="SubCategories\ViewModels\SubCategoryModel.cs" />
+    <Compile Include="Users\Interfaces\IActivationCodeService.cs" />
+    <Compile Include="Users\Interfaces\ITokenService.cs" />
+    <Compile Include="Users\Interfaces\IUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Validators\EditProfileModelValidator.cs" />
+    <Compile Include="Users\Validators\ChangePasswordModelValidator.cs" />
+    <Compile Include="Users\Validators\LoginUserModelValidator.cs" />
+    <Compile Include="Users\ViewModels\ActivationCodeModel.cs" />
+    <Compile Include="Users\ViewModels\EditProfileModel.cs" />
+    <Compile Include="Users\ViewModels\ChangePasswordModel.cs" />
+    <Compile Include="Users\ViewModels\ClassifiedOwnerModel.cs" />
+    <Compile Include="Users\ViewModels\LoginUserModel.cs" />
+    <Compile Include="Users\ViewModels\RegisterUserModel.cs" />
+    <Compile Include="Users\Services\ActivationCodeService.cs" />
+    <Compile Include="Users\Services\TokenService.cs" />
+    <Compile Include="Users\Services\UserService.cs" />
+    <Compile Include="Users\Validators\RegisterUserModelValidator.cs" />
+    <Compile Include="Users\ViewModels\TokenModel.cs" />
+    <Compile Include="Users\ViewModels\UserModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassifiedApp.BusinessModels\ClassifiedApp.BusinessModels.csproj">
+      <Project>{37f8bf01-60c2-46fa-b866-d839e5eaeb19}</Project>
+      <Name>ClassifiedApp.BusinessModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassifiedApp.DataAccess\ClassifiedApp.DataAccess.csproj">
+      <Project>{ad1c4a32-35ad-45b9-a559-0cb84ceced6a}</Project>
+      <Name>ClassifiedApp.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassifiedApp.Models\ClassifiedApp.Models.csproj">
+      <Project>{cfa7768a-355f-4b1e-b11e-880d5f3b9e62}</Project>
+      <Name>ClassifiedApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassifiedApp.Resolver\ClassifiedApp.Resolver.csproj">
+      <Project>{e6d5ffa9-0759-4663-8b8b-eb5926d22434}</Project>
+      <Name>ClassifiedApp.Resolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassifiedApp.Resources\ClassifiedApp.Resources.csproj">
+      <Project>{851b16c2-22a2-4b4b-9844-e63b56bbcd37}</Project>
+      <Name>ClassifiedApp.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\SyriatelWebService\API.wsdl" />
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.AddContractResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.Add_Admin_By_AgentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.Add_Normal_By_AdminResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.CheckJobStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.CheckUserStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.RegisterNewUserSCSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.SCS_SendSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.SendBroadcastSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SyriatelWebService\ClassifiedApp.BusinessServices.SyriatelWebService.SendSMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SyriatelWebService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SyriatelWebService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SyriatelWebService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SyriatelWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

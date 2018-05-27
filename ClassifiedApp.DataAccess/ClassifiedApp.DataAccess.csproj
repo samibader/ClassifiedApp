@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClassifiedApp.DataAccess</RootNamespace>
+    <AssemblyName>ClassifiedApp.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassifiedAppDbContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\DeviceConfiguration.cs" />
+    <Compile Include="Configurations\PropertyValueConfiguration.cs" />
+    <Compile Include="Configurations\RateConfiguration.cs" />
+    <Compile Include="Configurations\NotificationConfiguration.cs" />
+    <Compile Include="Configurations\ActivationCodeConfiguration.cs" />
+    <Compile Include="Configurations\AdminConfiguration.cs" />
+    <Compile Include="Configurations\ClassifiedConfiguration.cs" />
+    <Compile Include="Configurations\ClassifiedImageConfiguration.cs" />
+    <Compile Include="Configurations\FavoriteClassifiedConfiguration.cs" />
+    <Compile Include="Configurations\ReportClassifiedTicketConfiguration.cs" />
+    <Compile Include="Configurations\FeedbackTicketConfiguration.cs" />
+    <Compile Include="Configurations\ReportUserTicketConfiguration.cs" />
+    <Compile Include="Configurations\FavoriteUserConfiguration.cs" />
+    <Compile Include="Configurations\SubCategoryConfiguration.cs" />
+    <Compile Include="Configurations\CategoryConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\EntityBaseConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\SubPropertyDefinitionConfiguration.cs" />
+    <Compile Include="Configurations\LikeConfiguration.cs" />
+    <Compile Include="Configurations\TokenConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configurations\PropertyDefinitionConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="Extensions\CategoryExtensions.cs" />
+    <Compile Include="Extensions\ClassifiedExtensions.cs" />
+    <Compile Include="Extensions\UserExtensions.cs" />
+    <Compile Include="Infrastructure\DbFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\Disposable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Infrastructure\IDbFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Migrations\201510201950469_initial.cs" />
+    <Compile Include="Migrations\201510201950469_initial.Designer.cs">
+      <DependentUpon>201510201950469_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510232022092_ActivationCode.cs" />
+    <Compile Include="Migrations\201510232022092_ActivationCode.Designer.cs">
+      <DependentUpon>201510232022092_ActivationCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510232024202_ActivationCode2.cs" />
+    <Compile Include="Migrations\201510232024202_ActivationCode2.Designer.cs">
+      <DependentUpon>201510232024202_ActivationCode2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510270829255_PropertyDefinitions.cs" />
+    <Compile Include="Migrations\201510270829255_PropertyDefinitions.Designer.cs">
+      <DependentUpon>201510270829255_PropertyDefinitions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201510270832085_CategoryChanges.cs" />
+    <Compile Include="Migrations\201510270832085_CategoryChanges.Designer.cs">
+      <DependentUpon>201510270832085_CategoryChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511030226327_SubCategories.cs" />
+    <Compile Include="Migrations\201511030226327_SubCategories.Designer.cs">
+      <DependentUpon>201511030226327_SubCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131710051_Classifieds-V1.cs" />
+    <Compile Include="Migrations\201511131710051_Classifieds-V1.Designer.cs">
+      <DependentUpon>201511131710051_Classifieds-V1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511131815268_Classifieds-V2.cs" />
+    <Compile Include="Migrations\201511131815268_Classifieds-V2.Designer.cs">
+      <DependentUpon>201511131815268_Classifieds-V2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511132004002_Classifieds-V3.cs" />
+    <Compile Include="Migrations\201511132004002_Classifieds-V3.Designer.cs">
+      <DependentUpon>201511132004002_Classifieds-V3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511132030435_Classifieds-V4.cs" />
+    <Compile Include="Migrations\201511132030435_Classifieds-V4.Designer.cs">
+      <DependentUpon>201511132030435_Classifieds-V4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511141914298_Classifieds-V5.cs" />
+    <Compile Include="Migrations\201511141914298_Classifieds-V5.Designer.cs">
+      <DependentUpon>201511141914298_Classifieds-V5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511201958056_Admin.cs" />
+    <Compile Include="Migrations\201511201958056_Admin.Designer.cs">
+      <DependentUpon>201511201958056_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512032206285_AddFavoriteClassified.cs" />
+    <Compile Include="Migrations\201512032206285_AddFavoriteClassified.Designer.cs">
+      <DependentUpon>201512032206285_AddFavoriteClassified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512032254070_AddReportTickets.cs" />
+    <Compile Include="Migrations\201512032254070_AddReportTickets.Designer.cs">
+      <DependentUpon>201512032254070_AddReportTickets.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512051936140_AddNotification.cs" />
+    <Compile Include="Migrations\201512051936140_AddNotification.Designer.cs">
+      <DependentUpon>201512051936140_AddNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512051958477_UpdateNotificationCreationDate.cs" />
+    <Compile Include="Migrations\201512051958477_UpdateNotificationCreationDate.Designer.cs">
+      <DependentUpon>201512051958477_UpdateNotificationCreationDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512071923174_UpdateLikeCreationDate.cs" />
+    <Compile Include="Migrations\201512071923174_UpdateLikeCreationDate.Designer.cs">
+      <DependentUpon>201512071923174_UpdateLikeCreationDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512071951409_AddRate.cs" />
+    <Compile Include="Migrations\201512071951409_AddRate.Designer.cs">
+      <DependentUpon>201512071951409_AddRate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512182154468_AddFeedbackTicket.cs" />
+    <Compile Include="Migrations\201512182154468_AddFeedbackTicket.Designer.cs">
+      <DependentUpon>201512182154468_AddFeedbackTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512211851498_AddDevice.cs" />
+    <Compile Include="Migrations\201512211851498_AddDevice.Designer.cs">
+      <DependentUpon>201512211851498_AddDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512220933000_final1.cs" />
+    <Compile Include="Migrations\201512220933000_final1.Designer.cs">
+      <DependentUpon>201512220933000_final1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512221006438_final12.cs" />
+    <Compile Include="Migrations\201512221006438_final12.Designer.cs">
+      <DependentUpon>201512221006438_final12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231743441_AlterActivationCode.cs" />
+    <Compile Include="Migrations\201512231743441_AlterActivationCode.Designer.cs">
+      <DependentUpon>201512231743441_AlterActivationCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512231945081_AddPropertyValues.cs" />
+    <Compile Include="Migrations\201512231945081_AddPropertyValues.Designer.cs">
+      <DependentUpon>201512231945081_AddPropertyValues.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EntityBaseRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Repositories\IEntityBaseRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassifiedApp.Models\ClassifiedApp.Models.csproj">
+      <Project>{cfa7768a-355f-4b1e-b11e-880d5f3b9e62}</Project>
+      <Name>ClassifiedApp.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassifiedApp.Resolver\ClassifiedApp.Resolver.csproj">
+      <Project>{e6d5ffa9-0759-4663-8b8b-eb5926d22434}</Project>
+      <Name>ClassifiedApp.Resolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510201950469_initial.resx">
+      <DependentUpon>201510201950469_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510232022092_ActivationCode.resx">
+      <DependentUpon>201510232022092_ActivationCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510232024202_ActivationCode2.resx">
+      <DependentUpon>201510232024202_ActivationCode2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510270829255_PropertyDefinitions.resx">
+      <DependentUpon>201510270829255_PropertyDefinitions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510270832085_CategoryChanges.resx">
+      <DependentUpon>201510270832085_CategoryChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511030226327_SubCategories.resx">
+      <DependentUpon>201511030226327_SubCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131710051_Classifieds-V1.resx">
+      <DependentUpon>201511131710051_Classifieds-V1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511131815268_Classifieds-V2.resx">
+      <DependentUpon>201511131815268_Classifieds-V2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511132004002_Classifieds-V3.resx">
+      <DependentUpon>201511132004002_Classifieds-V3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511132030435_Classifieds-V4.resx">
+      <DependentUpon>201511132030435_Classifieds-V4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511141914298_Classifieds-V5.resx">
+      <DependentUpon>201511141914298_Classifieds-V5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511201958056_Admin.resx">
+      <DependentUpon>201511201958056_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512032206285_AddFavoriteClassified.resx">
+      <DependentUpon>201512032206285_AddFavoriteClassified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512032254070_AddReportTickets.resx">
+      <DependentUpon>201512032254070_AddReportTickets.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512051936140_AddNotification.resx">
+      <DependentUpon>201512051936140_AddNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512051958477_UpdateNotificationCreationDate.resx">
+      <DependentUpon>201512051958477_UpdateNotificationCreationDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071923174_UpdateLikeCreationDate.resx">
+      <DependentUpon>201512071923174_UpdateLikeCreationDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071951409_AddRate.resx">
+      <DependentUpon>201512071951409_AddRate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512182154468_AddFeedbackTicket.resx">
+      <DependentUpon>201512182154468_AddFeedbackTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512211851498_AddDevice.resx">
+      <DependentUpon>201512211851498_AddDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512220933000_final1.resx">
+      <DependentUpon>201512220933000_final1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512221006438_final12.resx">
+      <DependentUpon>201512221006438_final12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231743441_AlterActivationCode.resx">
+      <DependentUpon>201512231743441_AlterActivationCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512231945081_AddPropertyValues.resx">
+      <DependentUpon>201512231945081_AddPropertyValues.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

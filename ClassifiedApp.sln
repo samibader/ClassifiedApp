@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.Models", "ClassifiedApp.Models\ClassifiedApp.Models.csproj", "{CFA7768A-355F-4B1E-B11E-880D5F3B9E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.DataAccess", "ClassifiedApp.DataAccess\ClassifiedApp.DataAccess.csproj", "{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.BusinessModels", "ClassifiedApp.BusinessModels\ClassifiedApp.BusinessModels.csproj", "{37F8BF01-60C2-46FA-B866-D839E5EAEB19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.BusinessServices", "ClassifiedApp.BusinessServices\ClassifiedApp.BusinessServices.csproj", "{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.WebApi", "ClassifiedApp.WebApi\ClassifiedApp.WebApi.csproj", "{BF036974-2937-4A03-9FC1-9A6BBA62EFA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.Resolver", "ClassifiedApp.Resolver\ClassifiedApp.Resolver.csproj", "{E6D5FFA9-0759-4663-8B8B-EB5926D22434}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassifiedApp.Resources", "ClassifiedApp.Resources\ClassifiedApp.Resources.csproj", "{851B16C2-22A2-4B4B-9844-E63B56BBCD37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CFA7768A-355F-4B1E-B11E-880D5F3B9E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA7768A-355F-4B1E-B11E-880D5F3B9E62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA7768A-355F-4B1E-B11E-880D5F3B9E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA7768A-355F-4B1E-B11E-880D5F3B9E62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD1C4A32-35AD-45B9-A559-0CB84CECED6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F8BF01-60C2-46FA-B866-D839E5EAEB19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F8BF01-60C2-46FA-B866-D839E5EAEB19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F8BF01-60C2-46FA-B866-D839E5EAEB19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F8BF01-60C2-46FA-B866-D839E5EAEB19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF247E32-0ABF-4A94-B167-1E8C075C6FC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF036974-2937-4A03-9FC1-9A6BBA62EFA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF036974-2937-4A03-9FC1-9A6BBA62EFA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF036974-2937-4A03-9FC1-9A6BBA62EFA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF036974-2937-4A03-9FC1-9A6BBA62EFA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6D5FFA9-0759-4663-8B8B-EB5926D22434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6D5FFA9-0759-4663-8B8B-EB5926D22434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6D5FFA9-0759-4663-8B8B-EB5926D22434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6D5FFA9-0759-4663-8B8B-EB5926D22434}.Release|Any CPU.Build.0 = Release|Any CPU
+		{851B16C2-22A2-4B4B-9844-E63B56BBCD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{851B16C2-22A2-4B4B-9844-E63B56BBCD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{851B16C2-22A2-4B4B-9844-E63B56BBCD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{851B16C2-22A2-4B4B-9844-E63B56BBCD37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal
